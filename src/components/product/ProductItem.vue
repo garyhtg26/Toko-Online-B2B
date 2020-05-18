@@ -64,6 +64,9 @@ export default {
 <style lang="scss" scoped>
 div.card {
   height: 100%;
+  box-shadow: rgb(240, 240, 240) 1px 1px 6px 1px;
+  border-radius: 6px;
+  background: rgb(255, 255, 255);
 }
 
 .card-text {

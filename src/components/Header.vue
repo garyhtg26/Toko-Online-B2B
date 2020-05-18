@@ -8,9 +8,11 @@
             <div class="input-group">
                 <input type="text" class="form-control border border-right-0" placeholder="Cari disini...">
                 <span class="input-group-append">
+                    <router-link to="/list">
                     <button class="btn btn-secondary border border-left-0" type="button">
                         <i class="fa fa-search"></i>
                     </button>
+                    </router-link>
                 </span>
             </div>
         </form>

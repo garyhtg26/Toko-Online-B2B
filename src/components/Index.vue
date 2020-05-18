@@ -7,6 +7,7 @@
       <div class="container mt-3">
           <div class="row">
             <div class="col-md-12">
+                <h2 style="text-align:center;">RECOMMENDED ITEMS</h2>
               <app-store></app-store>
               <div class="card panel-warning d-none d-sm-flex" id="reset-store-panel">
                 

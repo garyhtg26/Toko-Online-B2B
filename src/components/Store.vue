@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h2 style="text-align:center; margin-top: 20px; margin-bottom: 20px;">RECOMMENDED ITEMS</h2>
+  <h2 style="text-align:center; margin-top: 20px; margin-bottom: 20px;"></h2>
 
 <div class="container" :class="{loadingItem: isProductLoading}">
    
