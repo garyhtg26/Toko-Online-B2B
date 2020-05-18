@@ -238,6 +238,10 @@ dl[class="row"] {
     cursor: -webkit-zoom-in;
     cursor: zoom-in;
 }
+.gallery-wrap .img-big-wrap a {
+    text-align: center;
+    display: block;
+}
 img {
     vertical-align: middle;
     border-style: none;
