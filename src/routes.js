@@ -5,6 +5,7 @@ import Login from './components/auth/Login.vue';
 import Register from './components/auth/Register.vue';
 import ProductList from './components/ProductList.vue';
 import Profile from './components/Profile.vue';
+import UploadForm from './components/form/UploadForm.vue';
 
 export const routes = [
 	{path: '/', component: Index, name: 'mainpage'},
@@ -12,6 +13,7 @@ export const routes = [
 	{path: '/cart', component: ShoppingCart, name: 'shoppingcart'},
 	{path: '/list', component: ProductList, name: 'productlist'},
 	{path: '/profile', component: Profile, name: 'profile'},
+	{path: '/upload', component: UploadForm, name: 'upload'},
 	{path: '/login', component: Login, name: 'login', onlyGuest: true },
 	{path: '/register', component: Register, name: 'register', onlyGuest: true},
 	{path: '*', redirect: '/' }

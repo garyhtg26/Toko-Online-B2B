@@ -20,6 +20,7 @@
 	<main class="col-md-9">
         <app-edit-profile v-if="selected===0"></app-edit-profile>
         <app-chat-window v-if="selected===1"></app-chat-window>
+        <app-wishlist v-if="selected===4"></app-wishlist>
 	</main> <!-- col.// -->
 </div>
 
@@ -37,6 +38,9 @@
   import Footer from './Footer.vue';
   import ChatWindow from './chat/ChatWindow.vue';
   import EditProfile from './profile/EditProfile.vue';
+  import Wishlist from './profile/Wishlist.vue';
+
+  
   
   export default {
     el: '#listGroup',
@@ -45,11 +49,13 @@
       appFooter: Footer,
       appChatWindow: ChatWindow,
       appEditProfile: EditProfile,
+      appWishlist: Wishlist,
     },
     data() {
 	return{
 		chat: "/chat",
-		profile: "/profile",
+    profile: "/profile",
+    upload: "/upload",
 		selected: 0
 		}
   },  
