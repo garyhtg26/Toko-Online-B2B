@@ -22,13 +22,13 @@
 <div class="card">
 <article class="gallery-wrap"> 
 	<div class="img-big-wrap">
-    <div> <a href="#"><img class="img-fluid intrinsic-item" :src="item.thumbnail_url" alt=""></a></div>
+    <div> <a href="#"><img class="img-fluid intrinsic-item" :src="item.photos.length > 0 ? item.photos[0].photo : false" alt=""></a></div>
 	</div> <!-- slider-product.// -->
 	<div class="thumbs-wrap">
-    <a href="#" class="item-thumb"> <img class="img-fluid intrinsic-item" :src="item.thumbnail_url" alt=""></a>
-    <a href="#" class="item-thumb"> <img class="img-fluid intrinsic-item" :src="item.thumbnail_url" alt=""></a>
-    <a href="#" class="item-thumb"> <img class="img-fluid intrinsic-item" :src="item.thumbnail_url" alt=""></a>
-    <a href="#" class="item-thumb"> <img class="img-fluid intrinsic-item" :src="item.thumbnail_url" alt=""></a>
+    <a href="#" class="item-thumb"> <img class="img-fluid intrinsic-item" :src="item.photos.length > 0 ? item.photos[0].photo : false" alt=""></a>
+    <a href="#" class="item-thumb"> <img class="img-fluid intrinsic-item" :src="item.photos.length > 0 ? item.photos[0].photo : false" alt=""></a>
+    <a href="#" class="item-thumb"> <img class="img-fluid intrinsic-item" :src="item.photos.length > 0 ? item.photos[0].photo : false" alt=""></a>
+    <a href="#" class="item-thumb"> <img class="img-fluid intrinsic-item" :src="item.photos.length > 0 ? item.photos[0].photo : false" alt=""></a>
 	</div> <!-- slider-nav.// -->
 </article> <!-- gallery-wrap .end// -->
 </div> <!-- card.// -->
@@ -36,7 +36,7 @@
 		<main class="col-md-6">
 <article class="product-info-aside">
 
-<h2 class="title mt-3"> {{ item.title }} </h2>
+<h2 class="title mt-3"> {{ item.name }} </h2>
 
 <div class="rating-wrap my-3">
 	<div class="rating-stars">
@@ -73,7 +73,7 @@
   <dd class="col-sm-9">3-4 days</dd>
 
   <dt class="col-sm-3">Availabilty</dt>
-  <dd class="col-sm-9">{{ item.quantity }} left in stock</dd>
+  <dd class="col-sm-9">{{ item.stock }} left in stock</dd>
 </dl>
 
 	<div class="form-row  mt-4">
@@ -89,7 +89,7 @@
 			</div>
 		</div> <!-- col.// -->
 		<div class="form-group col-md">
-			<button @click="addItem" :disabled="item.quantity === 0" class="btn btn-success">
+			<button @click="addItem" :disabled="item.stock === 0" class="btn btn-success">
                 Add to cart
             </button>
 			<a href="#" class="btn btn-light">
@@ -122,8 +122,10 @@ import {
   mapActions,
   mapGetters
 } from 'vuex';
-import Header from './Header';
-import Footer from './Footer';
+import Header from './templates/Header';
+import Footer from './templates/Footer';
+import base from '@/router/link.js'; 
+import axios from "axios";
 export default {
   components: {
     appHeader: Header,
@@ -133,10 +135,11 @@ export default {
     return {
       loaderColor: "#5cb85c",
       loaderSize: "50px",
+      products: [],
     }
   },
   computed: {
-    ...mapGetters(['isProductLoading', 'products']),
+    ...mapGetters(['isProductLoading', /*'products'*/]),
     item() {
       let id = this.$route.params.id;
       if (this.products.length >= id) {
@@ -160,8 +163,16 @@ export default {
       };
       // console.log(order);
       this.updateCart(order);
-    }
-  }
+    },
+    getItem () {
+    axios
+    .get(base.url + "products" )
+    .then(response => (this.products = response.data))
+  },
+  },
+  mounted() {
+    this.getItem();
+  },
 }
 </script>
 

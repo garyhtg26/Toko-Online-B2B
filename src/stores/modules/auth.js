@@ -23,6 +23,7 @@ const getters = {
 	currentUser: (state) => {
 		if (state && state.user) {
 			return {
+				name: state.user.name,
 				email: state.user.email,
 				emailVerified: state.user.emailVerified,
 				uid: state.user.uid

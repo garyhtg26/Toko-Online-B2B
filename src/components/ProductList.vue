@@ -24,7 +24,7 @@
 </div>
 
 <div class="row">
-	<aside style="" class="col-md-2">
+	<aside style="padding:5px;" class="col-md-2">
     <div class="card h-100">
       <div class="card-header">
     Featured
@@ -51,33 +51,33 @@
 	</article> <!-- filter-group  .// -->
 	<article class="filter-group">
 		<h6 class="title">
-			<a v-b-toggle.collapse-2-inner href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_2"> Brands </a>
+			<a v-b-toggle.collapse-2-inner href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_2"> Lokasi </a>
 		</h6>
 		<b-collapse visible class="filter-content collapse show" id="collapse-2-inner">
 			<div class="inner">
 				<label class="custom-control custom-checkbox">
                     <input type="checkbox" checked="" class="custom-control-input">
-                    <div class="custom-control-label">Adidas  
+                    <div class="custom-control-label">Bandung  
                         <b class="badge badge-pill badge-light float-right">120</b>  </div>
 				</label>
 				<label class="custom-control custom-checkbox">
                     <input type="checkbox" checked="" class="custom-control-input">
-                    <div class="custom-control-label">Nike 
+                    <div class="custom-control-label">Jakarta 
                         <b class="badge badge-pill badge-light float-right">15</b>  </div>
 				</label>
 				<label class="custom-control custom-checkbox">
                     <input type="checkbox" checked="" class="custom-control-input">
-                    <div class="custom-control-label">The Noth 
+                    <div class="custom-control-label">Riau
                         <b class="badge badge-pill badge-light float-right">35</b> </div>
 				</label>
 				<label class="custom-control custom-checkbox">
                     <input type="checkbox" checked="" class="custom-control-input">
-                    <div class="custom-control-label">The cat 
+                    <div class="custom-control-label">Malang
                         <b class="badge badge-pill badge-light float-right">89</b> </div>
 				</label>
 				<label class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input">
-                    <div class="custom-control-label">Honda 
+                    <div class="custom-control-label">Yogyakarta
                         <b class="badge badge-pill badge-light float-right">30</b>  </div>
 				</label>
 			</div> <!-- inner.// -->
@@ -162,7 +162,7 @@
 
 <header class="mb-3">
 		<div class="form-inline">
-			<strong class="mr-md-auto">8 Items found </strong>
+			<strong class="mr-md-auto">{{length}} Items found </strong>
 			<select class="mr-2 form-control">
 				<option>Latest items</option>
 				<option>Trending</option>
@@ -173,10 +173,17 @@
 		</div>
 </header><!-- sect-heading -->
 
-
+<b-card title="Oops, produk nggak ditemukan" img-src="https://ecs7.tokopedia.net/img/search/no-result/product-search-not-found-small.png" img-alt="Card image" img-left img-height="130px"
+    img-width="160px" class="mb-3" style="padding: 8px;">
+      <b-card-text>
+        Coba kata kunci lain atau request produk yang kamu mau di bawah.
+      </b-card-text>
+      <b-button href="#" style="color:white !important;" variant="success">Request disini</b-button>
+    </b-card>
 <article class="card card-product-list">
 	<div class="row no-gutters">
         <div class="col-md-12">
+        
         <app-store></app-store> 
         </div>
 	</div> <!-- row.// -->
@@ -211,25 +218,28 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import Header from './Header.vue';
+  import Header from './templates/Header.vue';
   import Store from './Store.vue';
-  import Footer from './Footer.vue'
+  import Footer from './templates/Footer.vue'
   import MessageComponent from './common/MessageComponent.vue';
   
   export default {
+    props: ["item", "displayList", "length"],
     components: {
       appHeader: Header,
       appStore: Store,
       appFooter: Footer,
       MessageComponent,
+      
     },
     data() {
       return {
-        src: require('@/assets/images/4.png')
+        src: require('@/assets/images/4.png'),
+        items: this.item.length
       }
     },
     methods: {
-      ...mapActions(['getShoppingCart', 'listenToProductList'])
+      ...mapActions(['getShoppingCart', 'listenToProductList', 'products'])
     },
     created() {
       let uid = this.$store.getters.currentUser.uid;
@@ -288,7 +298,12 @@ aside {
   top: 0px !important;
   bottom: 0px !important;
 }
-
+.not-found{
+    display: inline-block;
+    vertical-align: middle;
+    width: 160px;
+    margin: 0px 32px 0px 56px;
+}
 .card-body {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;

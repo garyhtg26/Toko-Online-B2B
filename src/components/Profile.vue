@@ -34,8 +34,8 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import Header from './Header.vue';
-  import Footer from './Footer.vue';
+  import Header from './templates/Header.vue';
+  import Footer from './templates/Footer.vue';
   import ChatWindow from './chat/ChatWindow.vue';
   import EditProfile from './profile/EditProfile.vue';
   import Wishlist from './profile/Wishlist.vue';

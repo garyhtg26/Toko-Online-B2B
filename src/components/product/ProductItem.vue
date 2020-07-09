@@ -2,11 +2,11 @@
 <div class="mb-3 col-sm-6 col-md-3 item" :class="{'list-group-item': displayList}">
   <div class="thumbnail card">
     <div class="img-event intrinsic">
-      <img :src="item.thumbnail_url" alt="" class="grow thumbnail-image card-img-top intrinsic-item p-3">
+      <img :src="item.photos.length > 0 ? item.photos[0].photo : false" alt="" class="grow thumbnail-image card-img-top intrinsic-item p-3">
     </div>
     <div class="card-body">
-      <router-link :to="'/product/' + item.id" tag="h5" class="card-title"><a class="car-2">{{ item.title }}</a></router-link>
-      <h6 class="card-subtitle mb-2 remain">{{ item.quantity }} left in stock</h6>
+      <router-link :to="'/product/' + item.id" tag="h5" class="card-title"><a class="car-2">{{ item.name }}</a></router-link>
+      <h6 class="card-subtitle mb-2 remain">{{ item.stock }} left in stock</h6>
       <div class="star-rating">
 										<ul class="list-inline">
 											<li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -22,7 +22,7 @@
       <div class="row">
         <p class="col-6 lead">Rp {{ item.price }}</p>
         <p class="col-6">
-          <button class="btn btn-success pull-right" :disabled="item.quantity === 0" @click="addItem">
+          <button class="btn btn-success pull-right" :disabled="item.stock === 0" @click="addItem">
             Add to cart
           </button>
         </p>
@@ -37,7 +37,7 @@ import {
   mapActions
 } from 'vuex';
 export default {
-  props: ['item', 'displayList'],
+  props: ["item", "displayList"],
   methods: {
     ...mapActions(['updateCart']),
     addItem() {
@@ -57,7 +57,8 @@ export default {
         return value;
       }
     }
-  }
+  },
+  
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        		<article class="card mb-3">
+		<article class="card mb-3">
 			<div class="card-body">
 				
 				<figure class="icontext">

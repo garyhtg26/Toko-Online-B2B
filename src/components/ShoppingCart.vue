@@ -1,98 +1,6 @@
 <template>
 <div>
-<header class="section-header">
-<section class="header-main border-bottom">
-<nav class="navbar navbar-expand-md navbar-light ">
-    <div class="d-flex flex-grow-1">
-        <a href="/" style="padding-left:20px;padding-right:20px;" class="navbar-brand">Toko Online</a>
-        <form class="mr-2 my-auto w-100 d-inline-block order-1">
-            <div class="input-group">
-                <input type="text" class="form-control border border-right-0" placeholder="Cari disini...">
-                <span class="input-group-append">
-                    <button class="btn btn-secondary border border-left-0" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
-        </form>
-    </div>
-    <button class="navbar-toggler order-0" type="button" data-toggle="collapse" data-target="#navbar7">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse flex-shrink-1 flex-grow-0 order-last" id="navbarTop" :class="{show: isNavOpen}">
-      <ul class="navbar-nav mr-auto">
-
-      </ul>
-      <ul class="nav navbar-nav">
-        <router-link to="/cart" tag="li"  class="btn nav-item" active-class="active">
-          <a class="nav-link">
-          <span class="fa fa-shopping-cart"></span>
-          </a>
-        </router-link>
-        
-        <router-link to="/login" tag="li" v-if="!isLoggedIn" class="btn nohover btn-outline-success " active-class="active">
-          <li class="nav-item">
-            <a class="ijo nav-link">Masuk</a>
-          </li>
-        </router-link>
-        <li v-if="isLoggedIn" class="li-pointer nav-item">
-          <a @click="logout" class="nav-link">Keluar {{ userEmail }}</a>
-        </li>
-        <router-link to="/register" tag="li" v-if="!isLoggedIn" class="btn btn-success  " active-class="active">
-          <li class="nav-item">
-            <a class="putih nav-link">Daftar</a>
-          </li>
-        </router-link>
-       
-      </ul>
-    </div>
-    <div>
-    </div>
-</nav>
-</section>
-<nav class="navbar navbar-expand-md navbar-light navbar-main border-bottom">
-  <div class="container">
-     <button class="navbar-toggler order-0" type="button" data-toggle="collapse" data-target="#navbar7">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse flex-shrink-1 flex-grow-0 order-last" id="navbarTop" :class="{show: isNavOpen}">
-      <ul class="navbar-nav mr-auto">
-
-      </ul>
-      <ul class="navbar-nav">
-        
-         <b-nav-item-dropdown toggle-class="text-dark" text="Category">
-          <b-dropdown-item href="#">Machinery</b-dropdown-item>
-          <b-dropdown-item href="#">Electronics</b-dropdown-item>
-          <b-dropdown-item href="#">Home textile</b-dropdown-item>
-          <b-dropdown-item href="#">Home and kitchen</b-dropdown-item>
-          <b-dropdown-item href="#">Service and equipment</b-dropdown-item>
-          <b-dropdown-item href="#">Healthcare items</b-dropdown-item>
-          <b-dropdown-item href="#">Toys and Hobbies</b-dropdown-item>
-        </b-nav-item-dropdown>
-        <li class="nav-item">
-           <a class="nav-link" href="#">Tentang Kami</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Mitra Kami</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sell with us</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-md-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Get the app</a>
-          </li>
-          
-              </ul>
-    </div> <!-- collapse .// -->
-  </div> <!-- container .// -->
-</nav>
-</header>
+<app-header></app-header>
   <div class="container table-responsive">
     <div class="row">
 	<main class="col-md-9">
@@ -183,66 +91,7 @@
 	</aside>
   </div>
   </div>
-  <footer class="section-footer border-top">
-	<div class="container">
-		<section class="footer-top padding-y">
-			<div class="row">
-				<aside class="col-md col-6">
-					<h6 class="title">Brands</h6>
-					<ul class="list-unstyled">
-						<li> <a href="#">Adidas</a></li>
-						<li> <a href="#">Puma</a></li>
-						<li> <a href="#">Reebok</a></li>
-						<li> <a href="#">Nike</a></li>
-					</ul>
-				</aside>
-				<aside class="col-md col-6">
-					<h6 class="title">Company</h6>
-					<ul class="list-unstyled">
-						<li> <a href="#">About us</a></li>
-						<li> <a href="#">Career</a></li>
-						<li> <a href="#">Find a store</a></li>
-						<li> <a href="#">Rules and terms</a></li>
-						<li> <a href="#">Sitemap</a></li>
-					</ul>
-				</aside>
-				<aside class="col-md col-6">
-					<h6 class="title">Help</h6>
-					<ul class="list-unstyled">
-						<li> <a href="#">Contact us</a></li>
-						<li> <a href="#">Money refund</a></li>
-						<li> <a href="#">Order status</a></li>
-						<li> <a href="#">Shipping info</a></li>
-						<li> <a href="#">Open dispute</a></li>
-					</ul>
-				</aside>
-				<aside class="col-md col-6">
-					<h6 class="title">Account</h6>
-					<ul class="list-unstyled">
-						<li> <a href="#"> User Login </a></li>
-						<li> <a href="#"> User register </a></li>
-						<li> <a href="#"> Account Setting </a></li>
-						<li> <a href="#"> My Orders </a></li>
-					</ul>
-				</aside>
-				<aside class="col-md">
-					<h6 class="title">Social</h6>
-					<ul class="list-unstyled">
-						<li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
-						<li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
-						<li><a href="#"> <i class="fab fa-instagram"></i> Instagram </a></li>
-						<li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
-					</ul>
-				</aside>
-			</div> <!-- row.// -->
-		</section>	<!-- footer-top.// -->
-
-		<section class="footer-bottom text-center">
-				<p class="text-muted" style="margin-top:20px;"> 2019 Toko Online B2B, All rights reserved </p>
-				<br>
-		</section>
-	</div><!-- //container -->
-</footer>
+  <app-footer></app-footer>
 </div>
 </template>
 
@@ -251,12 +100,10 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import CartItem from './cart/CartItem.vue'
-import Header from './Header.vue'
-import Footer from './Footer.vue';
+import Header from './templates/Header.vue'
+import Footer from './templates/Footer.vue';
 export default {
   computed: {
-    appHeader: Header,
-    appFooter: Footer,
     ...mapGetters([
       'cartItemList',
       'isLoggedIn',
@@ -266,6 +113,8 @@ export default {
     ]),
   },
   components: {
+    appHeader: Header,
+    appFooter: Footer,
     appCartItem: CartItem,
   },
   methods: {

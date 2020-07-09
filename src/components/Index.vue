@@ -28,10 +28,10 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import Header from './Header.vue';
+  import Header from './templates/Header.vue';
   import Slider from './Slider.vue';
   import Store from './Store.vue';
-  import Footer from './Footer.vue'
+  import Footer from './templates/Footer.vue'
   import MessageComponent from './common/MessageComponent.vue';
   
   export default {
@@ -59,7 +59,7 @@
   }
 </script>
 
-<style>
+<style >
 
 a {
     color: #212529;

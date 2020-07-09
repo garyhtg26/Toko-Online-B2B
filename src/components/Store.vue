@@ -22,7 +22,7 @@
   </div>
 
   <div class="row" v-if="!isProductLoading">
-    <app-product-item v-for="prod in products" :item="prod" :key="prod.id" :displayList="displayList"></app-product-item>
+    <app-product-item v-for="prod in products" :item="prod" :key="prod.id" :length="products.length" :displayList="displayList"></app-product-item>
   </div>
   <div style="margin-bottom:25px"></div>
 </div>
@@ -33,31 +33,42 @@
 import { mapGetters } from 'vuex'
 import ProductItem from './product/ProductItem.vue';
 import GridLoader from 'vue-spinner/src/GridLoader.vue';
+import base from '@/router/link.js'; 
+import axios from "axios";
 
 export default {
   data() {
     return {
       loaderColor: "#5cb85c",
       loaderSize: "50px",
-      displayList: false
+      displayList: false,
+      products: []
     }
   },
   computed: {
-    ...mapGetters(['products', 'isProductLoading']),
+    ...mapGetters([/* 'products' , */ 'isProductLoading']),
   },
   components: {
     appProductItem: ProductItem,
     GridLoader
   },
+  mounted() {
+    this.getItem();
+  },
   methods: {
     changeDisplay(isList) {
       this.displayList = isList;
-    }
+    },
+    getItem () {
+    axios
+    .get(base.url + "products" )
+    .then(response => (this.products = response.data))
+  }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .loadingItem {
   align-items: center;
   justify-content: center;

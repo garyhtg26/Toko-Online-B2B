@@ -54,10 +54,13 @@
         <div class="card-body">
             <div>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group
-        id="input-group-1"
-        label="Nama Product:"
-        label-for="input-1"
+        <b-row class="mt-2">
+        <b-col sm="2">
+          <label description="test">Nama Product:</label>
+        </b-col>
+        <b-col sm="10">
+           <b-form-group
+        id="input-nama-produk"
         description="Nama produk min. 5 kata dan terdiri dari jenis produk, merek, dan keterangan seperti warna, bahan, atau tipe."
       >
         <b-form-input
@@ -68,8 +71,16 @@
           placeholder="Contoh: Sepatu Pria"
         ></b-form-input>
       </b-form-group>
+        </b-col>
+      </b-row>
 
-      <b-form-group id="input-group-3" label="Kategori:" label-for="input-3">
+
+        <b-row class="mt-2">
+        <b-col sm="2">
+          <label>Kategori:</label>
+        </b-col>
+        <b-col sm="10">
+        <b-form-group id="input-kategori" >
         <b-form-select
           id="input-3"
           v-model="form.food"
@@ -77,15 +88,13 @@
           required
         ></b-form-select>
       </b-form-group>
+        </b-col>
+      </b-row>
 
      
     </b-form>
     
   </div>
-
-          <!-- Standar Form -->
-          
-         
         </div>
       </div>
       <div class="card card-default">
@@ -96,43 +105,110 @@
         </div>
         <div class="card-body">
             <div>
-
-      <b-form-group id="input-group-4" label="Kondisi">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-          <b-form-checkbox value="me">Baru</b-form-checkbox>
-          <b-form-checkbox value="that">Bekas</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group>
+              
+      <b-row class="mt-2">
+        <b-col sm="2">
+          <label>Stock:</label>
+        </b-col>
+        <b-col sm="10">
+        <b-form-input
+          id="input-1"
+          v-model="form.stock"
+          type="number"
+          required
+          placeholder="Masukan Jumlah Stock"
+        ></b-form-input>
+        </b-col>
+      </b-row>
 
      <b-row class="mt-2">
     <b-col sm="2">
-      <label for="textarea-default">Default:</label>
+      <label for="textarea-default">Keterangan Produk:</label>
     </b-col>
     <b-col sm="10">
+      <b-form-group
+        id="input-keterangan-produk"
+        description="Cantumkan deskripsi lengkap sesuai produk, seperti keunggulan, spesifikasi, material, ukuran, masa berlaku, dan lainnya. Panjang deskripsi antara 450-2000 karakter.
+"
+      >
       <b-form-textarea
         id="textarea-default"
-        placeholder="Default textarea"
+        placeholder=""
       ></b-form-textarea>
+      </b-form-group>
     </b-col>
   </b-row>
     
   </div>
+     </div>
+         </div>
 
-          <!-- Standar Form -->
-          
-         
+          <div class="card card-default">
+        <div class="card-header">
+          <strong>Harga</strong> 
+          <br>
+
         </div>
-      </div>
-       <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+        <div class="card-body">
+            <div>
+              
+      <b-row class="mt-2">
+        <b-col sm="2">
+          <label>Minimum Pemesanan:</label>
+        </b-col>
+        <b-col sm="10">
+          <b-form-group
+        description="Atur jumlah minimum yang harus dibeli untuk produk ini.
+"
+      >
+        <b-form-input
+          v-model="form.min"
+          type="number"
+          required
+          placeholder="1"
+        ></b-form-input>
+          </b-form-group>
+        </b-col>
+      </b-row>
+
+     <b-row class="mt-2">
+    <b-col sm="2">
+      <label for="textarea-default">Harga Satuan:</label>
+    </b-col>
+    <b-col sm="1">
+      Rp
+    </b-col>
+    <b-col sm="9">
+        
+        <b-form-input
+          v-model="form.harga"
+          type="number"
+          required
+          placeholder="1.000"
+        ></b-form-input>
+    </b-col>
+  </b-row>
+    
+  </div>
+     </div>
+         </div>
+         <b-row align-h="end" style="margin-bottom:50px;">
+    <b-col cols="2">
+      <button type="submit" class="btn btn-block btn-outline-primary"> Batal </button>
+
+    </b-col>
+    <b-col cols="2"> 
+       <button type="submit" class="btn btn-block btn-success"> Simpan </button>
+    </b-col>
+  </b-row>
     </div>
     <app-footer></app-footer>
 </div>
 </template>
 
 <script>
-  import Header from '@/components/Header.vue';
-  import Footer from '@/components//Footer.vue'
+  import Header from '@/components/templates/Header';
+  import Footer from '@/components/templates/Footer'
   
   
   export default {

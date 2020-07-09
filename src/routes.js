@@ -6,15 +6,17 @@ import Register from './components/auth/Register.vue';
 import ProductList from './components/ProductList.vue';
 import Profile from './components/Profile.vue';
 import UploadForm from './components/form/UploadForm.vue';
+import OnBoarding from './components/seller/OnBoarding.vue';
 
 export const routes = [
 	{path: '/', component: Index, name: 'mainpage'},
 	{path: '/product/:id', component: ProductDetails, name: 'product'},
 	{path: '/cart', component: ShoppingCart, name: 'shoppingcart'},
 	{path: '/list', component: ProductList, name: 'productlist'},
-	{path: '/profile', component: Profile, name: 'profile'},
+	{path: '/profile', component: Profile, name: 'profile', onlyGuest: false},
 	{path: '/upload', component: UploadForm, name: 'upload'},
 	{path: '/login', component: Login, name: 'login', onlyGuest: true },
 	{path: '/register', component: Register, name: 'register', onlyGuest: true},
+	{path: '/OnBoarding', component: OnBoarding, name: 'OnBoarding', onlyGuest: false},
 	{path: '*', redirect: '/' }
 ];
