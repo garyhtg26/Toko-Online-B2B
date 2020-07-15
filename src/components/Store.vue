@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 .loadingItem {
   align-items: center;
   justify-content: center;

@@ -11,7 +11,7 @@
 				</div>
 			</div>
 		</td>
-		<td data-th="Price">{{ cartItem.price }}</td>
+		<td data-th="Price">Rp {{ cartItem.price }}</td>
 		<td data-th="Quantity">
 			<input type="number" class="form-control text-center"
 				:value="cartItem.quantity"

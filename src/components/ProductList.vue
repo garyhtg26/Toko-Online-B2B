@@ -250,7 +250,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 @media (min-width: 1040px){
 .container {
     padding-left: 30px !important;
@@ -359,7 +359,6 @@ aside {
 a {
     color: #212529;
     text-decoration: none;
-    background-color: transparent;
 }
 .checkbox-btn {
     position: relative;

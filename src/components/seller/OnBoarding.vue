@@ -46,7 +46,7 @@
             </div>
 
         </div>
-        <button class="btn btn-danger btn-lg align-self-center" type="button" name="button">Lanjutkan</button>
+     <b-button to="/onboarding/perusahaan" class="btn btn-success">Lanjutkan</b-button>
       </div>
     </div>
   </header>
@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .seller-profilling-buffer {
     margin-top: 70px;
     margin-bottom: 50px;

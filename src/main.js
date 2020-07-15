@@ -14,7 +14,10 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import App from './App.vue';
 import './plugins/element.js'
 import './assets/css/all.min.css'
+import lineClamp from 'vue-line-clamp'
+import ScrollFixedHeader from 'vuejs-scroll-fixed-header'
 
+Vue.use(ScrollFixedHeader)
 Vue.component('v-select', vSelect)
 Vue.use(VueRouter, ElementUI);
 Vue.use(Carousel);
@@ -23,7 +26,9 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 firebaseListener(authStatusChange);
-
+Vue.use(lineClamp, {
+	// plugin options
+  })
 
 const router = new VueRouter({
 	mode: 'history',

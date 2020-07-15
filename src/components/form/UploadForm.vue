@@ -250,7 +250,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 .card {
   margin-bottom: 25px;
 }

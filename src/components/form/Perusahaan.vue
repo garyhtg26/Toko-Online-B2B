@@ -1,27 +1,35 @@
 <template>
   <div>
-      <h1>Onboarding</h1>
-  <b-card title="Card Title" body-class="text-center" header-tag="nav">
+    <app-seller-header></app-seller-header>
+    <div class="container py-5">
+      <h3 style="margin-bottom:20px">Onboarding</h3>
+  <b-card title="" body-class="" header-tag="nav">
     <template v-slot:header>
       <b-nav card-header tabs>
-        <b-nav-item active>Active</b-nav-item>
-        <b-nav-item>Inactive</b-nav-item>
-        <b-nav-item disabled>Disabled</b-nav-item>
+        <b-nav-item active>Informasi Toko</b-nav-item>
+        <b-nav-item disabled >Informasi Pengiriman</b-nav-item>
+        <b-nav-item disabled>Informasi Pembayaran</b-nav-item>
+        <b-nav-item disabled>Syarat dan ketentuan</b-nav-item>
       </b-nav>
     </template>
 
-    <b-card-text>
-      With supporting text below as a natural lead-in to additional content.
-    </b-card-text>
+    
 
     <b-button variant="primary">Go somewhere</b-button>
   </b-card>
+  </div>
+  <app-seller-footer></app-seller-footer>
 </div>
 </template>
 
 <script>
+import SellerHeader from '@/components/templates/SellerHeader';
+import SellerFooter from '@/components/templates/SellerFooter';
 export default {
-
+    components:{
+        appSellerHeader: SellerHeader,
+        appSellerFooter: SellerFooter,
+    }
 }
 </script>
 

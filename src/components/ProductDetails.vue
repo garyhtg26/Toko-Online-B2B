@@ -97,6 +97,11 @@
 			</a>
 		</div> <!-- col.// -->
 	</div> <!-- row.// -->
+  <div >
+      <button style="width:100% !important;" @click="addItem" :disabled="item.stock === 0" class="btn btn-success">
+                Nego Harga
+            </button>
+      </div>
 
 </article> <!-- product-info-aside .// -->
 		</main> <!-- col.// -->

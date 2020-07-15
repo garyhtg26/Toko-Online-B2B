@@ -1,6 +1,6 @@
 <template>
   <div class="row login-container" >
-      <div class="col-md-7 mt-5">
+      <div class="col-md-8 mt-5">
       <div class="card-group">
         <div class="card p-4">
           <div class="card-body">

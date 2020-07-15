@@ -1,4 +1,5 @@
 <template>
+<scroll-fixed-header :fixed.sync="fixed" :threshold="56">
 <header class="section-header">
 <section class="header-main border-bottom">
 <nav class="navbar navbar-expand-md navbar-light ">
@@ -33,7 +34,7 @@
             <a class="ijo nav-link">Masuk</a>
           </li>
         </router-link>
-<b-nav-item-dropdown style="color:#454545;" class="nav-link" v-if="isLoggedIn" :text="username" left>
+<b-nav-item-dropdown no-caret style="color:#454545;" class="nav-link" v-if="isLoggedIn" :text="username" left>
     <!-- Using 'button-content' slot -->
     <template slot="button-content">
         <i class=" fa fa-envelope"></i>
@@ -43,16 +44,27 @@
     <b-dropdown-item  >Diskusi</b-dropdown-item>
     <b-dropdown-item  >Ulasan</b-dropdown-item>
 </b-nav-item-dropdown>
-<b-nav-item-dropdown style="color:#454545;" class="nav-link" v-if="isLoggedIn" :text="username" left>
+<b-nav-item-dropdown no-caret style="color:#454545;" class="nav-link" v-if="isLoggedIn" :text="username" left>
     <!-- Using 'button-content' slot -->
     <template slot="button-content">
-        <i class="fa fa-user mr"></i>
+        <i class="fa fa-store-alt"></i>
+        
+    </template>
+     <b-dropdown-item to="/profile">Buka Toko</b-dropdown-item>
+    
+
+</b-nav-item-dropdown>
+<b-nav-item-dropdown no-caret style="color:#454545;" class="nav-link" v-if="isLoggedIn" :text="username" left>
+    <!-- Using 'button-content' slot -->
+    <template slot="button-content">
+        <i class="fa fa-user"></i>
         <a style="padding-left:10px">{{ userEmail.substring(0,5) }}</a>
     </template>
      <b-dropdown-item to="/profile">Edit Profile</b-dropdown-item>
-    <b-dropdown-item @click="logout" >Exit</b-dropdown-item>
+    <b-dropdown-item @click="logout" >Logout</b-dropdown-item>
 
 </b-nav-item-dropdown>
+
 <div v-if="isLoggedIn" style="margin-left:25px;"></div>
         <router-link to="/register" tag="li" v-if="!isLoggedIn" class="btn btn-success  " active-class="active">
           <li class="nav-item">
@@ -109,7 +121,7 @@
   </div> <!-- container .// -->
 </nav>
 </header>
-
+</scroll-fixed-header>
 </template>
 
 <script>
@@ -117,8 +129,10 @@ import {
   mapActions, mapGetters
 } from 'vuex';
 export default {
+  name: 'Timer',
   data() {
     return {
+      fixed: false,
       isNavOpen: false
     }
   },
@@ -144,7 +158,7 @@ export default {
 </script>
 
 
-<style scoped lange="sass">
+<style scoped >
 a {
     color: #000; /* for browsers that don't support 'inherit' as a color value */
     color: inherit;
@@ -201,8 +215,9 @@ a {
     /* or something like that */
 }
 .dropdown-toggle::after {
-    display: none;
+    display: none !important;
 }
+
 .dropdown {
   margin: auto;
 }

@@ -7,6 +7,8 @@ import ProductList from './components/ProductList.vue';
 import Profile from './components/Profile.vue';
 import UploadForm from './components/form/UploadForm.vue';
 import OnBoarding from './components/seller/OnBoarding.vue';
+import Perorangan from './components/form/Perorangan.vue';
+import Perusahaan from './components/form/Perusahaan.vue';
 
 export const routes = [
 	{path: '/', component: Index, name: 'mainpage'},
@@ -17,6 +19,8 @@ export const routes = [
 	{path: '/upload', component: UploadForm, name: 'upload'},
 	{path: '/login', component: Login, name: 'login', onlyGuest: true },
 	{path: '/register', component: Register, name: 'register', onlyGuest: true},
-	{path: '/OnBoarding', component: OnBoarding, name: 'OnBoarding', onlyGuest: false},
+	{path: '/onboarding', component: OnBoarding, name: 'onboarding'},
+	{path: '/onboarding/perusahaan', component: Perorangan },
+	{path: '/onboarding/perorangan', component: Perusahaan},
 	{path: '*', redirect: '/' }
 ];

@@ -2,53 +2,190 @@
     <div>
 		<article class="card mb-3">
 			<div class="card-body">
-				
-				<figure class="icontext">
-						<div class="icon">
-							<img class="rounded-circle img-sm border" v-bind:src="src">
+				<b-tabs content-class="mt-3">
+					<b-tab title="Biodata Diri" active>
+						<div class="container">
+					<div class="row mt-4">
+						<div class="col-md-4">
+							<div class="well">
+								<img v-bind:src="src" class="img-sm">
+								<hr class="mb-4">
+							<b-button style="width:100%;color:#333230; background-color:white;">Pilih Foto</b-button>
+							<div class="clear-b mt-1">
+								<small class="muted"> 
+									Besar file: maksimum 1 MB
+									
+								</small>
+							</div>
+							</div>
+							<div class="clear-b">
+								<b-button class="btn btn-success btn-block"> <i class="fa fa-key mr-1"></i>Ganti Password</b-button>
+							</div>
+							
 						</div>
-						<div class="text">
-							<strong> Mr. Jackson Someone </strong> <br> 
-							myloginname@gmail.com <br> 
-							<a href="#" class="btn-link">Edit</a>
-						</div>
-				</figure>
-				<hr>
-				<p>
-					<i class="fa fa-map-marker text-muted"></i> &nbsp; My address:  
-                    <br>
-					Tashkent city, Street name, Building 123, House 321  
-					<a href="#" class="btn-link"> Edit</a>
-				</p>
+						<div class="col-md-8">
+							<b-form @submit.prevent="handleSubmit">
+									<h7>Ubah Biodata Diri</h7>
+									<b-row class="mt-2">
+									<b-col sm="3">
+									<label class="mt-1">Nama:</label>
+									</b-col>
+									<b-col sm="9">
+									<b-form-group>
+									<b-form-input size="sm"
+								
+									></b-form-input>
+									</b-form-group>
+									</b-col>
+									</b-row>
 
-				
+									<b-row class="mt-2">
+									<b-col sm="3">
+									<label class="mt-1">Tanggal Lahir:</label>
+									</b-col>
+									<b-col sm="9">
+									<b-form-group>
+									<b-form-input size="sm"
+								
+									></b-form-input>
+									</b-form-group>
+									</b-col>
+									</b-row>
 
-				<article class="card-group">
-					<figure class="card bg">
-						<div class="p-3">
-                            <h5 class="card-title">38</h5>
-							<span>Orders</span>
+									<b-row class="mt-2">
+									<b-col sm="3">
+									<label class="mt-1">Jenis Kelamin:</label>
+									</b-col>
+									<b-col sm="9">
+									<b-form-group>
+									<b-form-input size="sm"
+								
+									></b-form-input>
+									</b-form-group>
+									</b-col>
+									</b-row>
+									<br>
+									<h7 class="">Ubah Kontak</h7>
+
+									<b-row class="mt-2">
+									<b-col sm="3">
+									<label class="mt-1">Email:</label>
+									</b-col>
+									<b-col sm="9">
+									<b-form-group>
+									<b-form-input v-model="userEmail" size="sm">
+										
+									</b-form-input>
+									</b-form-group>
+									</b-col>
+									</b-row>
+
+									<b-row class="mt-2">
+									<b-col sm="3">
+									<label class="mt-1">No Hp:</label>
+									</b-col>
+									<b-col sm="9">
+									<b-form-group>
+									<b-form-input size="sm"
+								
+									></b-form-input>
+									</b-form-group>
+									</b-col>
+									</b-row>
+							</b-form>
+		</div>
+					</div>
+				</div>
+					</b-tab>
+					<b-tab title="Daftar Alamat">
+						
+						<div class="row mb-2">
+							<div class="col-md-3">
+								<div class="pull left mt-2">
+									<b-button class="btn btn-success"><i class="fa fa-plus mr-1"></i>Tambah alamat</b-button>
+								</div>
+							</div>
+
 						</div>
-					</figure>
-					<figure class="card bg">
-						<div class="p-3">
-                            <h5 class="card-title">5</h5>
-							<span>Wishlists</span>
-						</div>
-					</figure>
-					<figure class="card bg">
-						<div class="p-3">
-                            <h5 class="card-title">12</h5>
-							<span>Awaiting delivery</span>
-						</div>
-					</figure>
-					<figure class="card bg">
-						<div class="p-3">
-                            <h5 class="card-title">50</h5>
-							<span>Delivered items</span>
-						</div>
-					</figure>
-				</article>
+						<table class="table table-address">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Penerima</th>
+                <th>Alamat Pengiriman</th>
+                <th >Daerah pengiriman</th>
+          
+                <th style="width:175px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                
+                    <tr>
+                        <td>
+                            <div class="log-radio-small log-radio-dimension pt-5">
+                                <input type="radio" id="default-48920984" name="radio-address" class="set-default-address-button" checked="checked">
+                                <label id="default-48920984" class="log-radio-label" for="default-48920984">
+                                    <span data-hover="tooltip" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Jadikan Alamat Utama"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="fs-12">
+                            <div><strong>gary</strong></div>
+                            <div>6289683354920</div>
+                        </td>
+                        <td class="fs-12">
+                            <span><strong>kosan</strong></span>
+                            <p>Jl. Sukabirus no 7, citeurep. (d gallery kost)</p>
+                        </td>
+                        <td class="fs-12">
+                            <p>Jawa Barat, Kab. Bandung, Dayeuhkolot 40238<br>Indonesia</p>
+                        </td>
+                   
+                        <td class="action-button">
+                          <b-button class="button btn btn-success btn-sm"><i class="fa fa-pencil-square-o"></i>Ubah</b-button>
+							<b-button class="button btn btn-light btn-sm"><i class="fa fa-trash"></i>Hapus</b-button>
+                       </td>
+                    </tr>
+                
+                    <tr>
+                        <td>
+                            <div class="log-radio-small log-radio-dimension pt-5">
+                                <input type="radio" id="default-115624114" name="radio-address" class="set-default-address-button">
+                                <label id="default-115624114" class="log-radio-label" for="default-115624114">
+                                    <span data-hover="tooltip" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Jadikan Alamat Utama"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="fs-12">
+                            <div><strong>Gary</strong></div>
+                            <div>6281383316926</div>
+                        </td>
+                        <td class="fs-12">
+                            <span><strong>Rumah</strong></span>
+                            <p>Jl. Candi goa gajah blok AJ 6 no 8, Pondok benda, Tangerang selatan, Pamulang, Banten</p>
+                        </td>
+                        <td class="fs-12">
+                            <p>Banten, Kota Tangerang Selatan, Pamulang 15417<br>Indonesia</p>
+                        </td>
+                     
+                        <td class="action-button">
+                            <b-button class="button btn btn-success btn-sm"><i class="fa fa-pencil-square-o"></i>Ubah</b-button>
+							<b-button class="button btn btn-light btn-sm"><i class="fa fa-trash"></i>Hapus</b-button>
+                        </td>
+                    </tr>
+                
+            
+        </tbody>
+    </table>
+
+
+
+
+
+					</b-tab>
+					
+				</b-tabs>
 				
 
 			</div> <!-- card-body .// -->
@@ -99,22 +236,120 @@
 </template>
 
 <script>
+import {   mapGetters
+} from 'vuex';
 export default {
+	
+	computed: {
+    ...mapGetters(['isLoggedIn', 'cartValue', 'currentUser', 'cartItemList']),
+    numItems() {
+      return this.cartItemList.reduce((total, item) => {
+        total += item.quantity;
+        return total
+      }, 0);
+    },
+    userEmail() {
+      return this.isLoggedIn ? this.currentUser.email : ''
+    }
+  },
 data() {
       return {
         src: require('@/assets/images/profile.png'),
         item1: require('@/assets/images/items/1.jpg'),
         item2: require('@/assets/images/items/2.jpg'),
-        item3: require('@/assets/images/items/3.jpg'),
+		item3: require('@/assets/images/items/3.jpg'),
+		user:{
+        name: '',
+        email:  '',
+        mobile: '',
+        city: '',
+        password: '',
+        confirmation: '',
+        hobbies: []
+    }
       }
-    },
+	},
+methods: {
+    handleSubmit () {
+      console.log(this.user);
+    }
+  },
 }
 </script>
 
 <style>
+.action-button{
+	border-top: 0;
+    padding-top: 20px;
+}
+.table-address .button {
+    display: inline-block;
+    min-width: 50px;
+    margin: 0 0 10px;
+    padding: 9px 15px 7px;
+    font-size: 11px;
+
+    border-radius: 3px;
+    border: solid 1px #e0e0e0;
+}
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+table, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.table-address thead tr {
+    border-bottom: solid 1px #e0e0e0;
+}
+.table-address thead tr th {
+    padding-bottom: 20px;
+}
+.table thead th {
+    vertical-align: bottom;
+}
+.table th {
+    font-weight: 700;
+}
+.table th, .table td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+label {
+	color: grey;
+}
+
+.muted {
+    color: rgba(0,0,0,.38);
+}
+.clear-b {
+    clear: both;
+}
+
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid rgba(0,0,0,.15);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
 .img-sm {
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 200px;
 }
 .btn-link {
     font-weight: 400;
